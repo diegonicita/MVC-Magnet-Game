@@ -11,21 +11,20 @@ public class Elemento : MonoBehaviour
 
 public class App : MonoBehaviour
 {
-    public GameObject routes;
+    public Rutas [] routes;
     public Controller [] controllers;
     //public Modelo models;
     //public View views;
 
     // Iterates all Controllers and delegates the notification data
-    // This method can easily be found because every class is “BounceElement” and has an “app” 
-    // instance.
+    // This method can easily be found because every class is “Element” and has an “app” instance.
 
     public void Notify(string p_event_path, Object p_target, params object[] p_data)
     {
         Controller[] controller_list = GetAllControllers();
         foreach (Controller c in controller_list)
         {
-            Debug.Log(p_event_path);
+            //Debug.Log(p_event_path);
             c.OnNotification(p_event_path, p_target, p_data);
         }
     }
@@ -34,16 +33,6 @@ public class App : MonoBehaviour
     public Controller[] GetAllControllers() {               
 
         return controllers;
-
-    }
-
-    void Start()
-    {
-        
-    }
-
-    void SetRoute()
-    {
 
     }
 

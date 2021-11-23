@@ -149,8 +149,8 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 38000554}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.000031846943}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -160,7 +160,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -212, y: 23}
+  m_AnchoredPosition: {x: -212.00002, y: 23}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &38000556
@@ -207,16 +207,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1974491327}
-        m_TargetAssemblyTypeName: CubeRutes, Assembly-CSharp
-        m_MethodName: ejecutarRuta
+      - m_Target: {fileID: 1812048512}
+        m_TargetAssemblyTypeName: ViewSampleScene, Assembly-CSharp
+        m_MethodName: EnviarMensaje
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 3
           m_FloatArgument: 0
-          m_StringArgument: AchicarCubo
+          m_StringArgument: Cubo Achicar
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &38000557
@@ -535,7 +535,7 @@ GameObject:
   - component: {fileID: 360050100}
   - component: {fileID: 360050099}
   m_Layer: 5
-  m_Name: ButtonEsferaRoja
+  m_Name: EsferaColorRojo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -606,16 +606,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 786122130}
-        m_TargetAssemblyTypeName: SphereRoutes, Assembly-CSharp
-        m_MethodName: ejecutarRuta
+      - m_Target: {fileID: 1812048512}
+        m_TargetAssemblyTypeName: ViewSampleScene, Assembly-CSharp
+        m_MethodName: EnviarMensaje
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
-          m_StringArgument: CambiarARojo
+          m_StringArgument: Esfera ColorRojo
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &360050100
@@ -983,16 +983,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1974491327}
-        m_TargetAssemblyTypeName: CubeRutes, Assembly-CSharp
-        m_MethodName: ejecutarRuta
+      - m_Target: {fileID: 1812048512}
+        m_TargetAssemblyTypeName: ViewSampleScene, Assembly-CSharp
+        m_MethodName: EnviarMensaje
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
           m_FloatArgument: 0
-          m_StringArgument: AgrandarCubo
+          m_StringArgument: Cubo Agrandar
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &798003041
@@ -1220,7 +1220,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46078c2b7e6f3b34fb6478b3c8835f47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  routes: {fileID: 812718238}
+  routes:
+  - {fileID: 1974491327}
+  - {fileID: 786122130}
   controllers:
   - {fileID: 977474743}
   - {fileID: 1163988546}
@@ -1282,7 +1284,7 @@ GameObject:
   - component: {fileID: 1021118801}
   - component: {fileID: 1021118800}
   m_Layer: 5
-  m_Name: ButtonEsferaBlanco
+  m_Name: EsferaColorBlanco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1353,16 +1355,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 786122130}
-        m_TargetAssemblyTypeName: SphereRoutes, Assembly-CSharp
-        m_MethodName: ejecutarRuta
+      - m_Target: {fileID: 1812048512}
+        m_TargetAssemblyTypeName: ViewSampleScene, Assembly-CSharp
+        m_MethodName: EnviarMensaje
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: CambiarABlanco
+          m_StringArgument: Esfera ColorBlanco
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1021118801
@@ -1447,7 +1449,7 @@ GameObject:
   - component: {fileID: 1142472274}
   - component: {fileID: 1142472273}
   m_Layer: 5
-  m_Name: ButtonCuboBlanco
+  m_Name: CuboColorBlanco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1518,16 +1520,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1974491327}
-        m_TargetAssemblyTypeName: CubeRutes, Assembly-CSharp
-        m_MethodName: ejecutarRuta
+      - m_Target: {fileID: 1812048512}
+        m_TargetAssemblyTypeName: ViewSampleScene, Assembly-CSharp
+        m_MethodName: EnviarMensaje
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: CambiarABlanco
+          m_StringArgument: Cubo ColorBlanco
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1142472274
@@ -1963,7 +1965,7 @@ GameObject:
   - component: {fileID: 1710648927}
   - component: {fileID: 1710648926}
   m_Layer: 5
-  m_Name: ButtonCuboRojo
+  m_Name: CuboColorRojo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2034,16 +2036,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1974491327}
-        m_TargetAssemblyTypeName: CubeRutes, Assembly-CSharp
-        m_MethodName: ejecutarRuta
+      - m_Target: {fileID: 1812048512}
+        m_TargetAssemblyTypeName: ViewSampleScene, Assembly-CSharp
+        m_MethodName: EnviarMensaje
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
-          m_StringArgument: CambiarARojo
+          m_StringArgument: Cubo ColorRojo
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1710648927
@@ -2270,6 +2272,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1812048511}
+  - component: {fileID: 1812048512}
   m_Layer: 0
   m_Name: Views
   m_TagString: Untagged
@@ -2298,6 +2301,18 @@ Transform:
   m_Father: {fileID: 846815918}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1812048512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812048510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fedbde4cd8227bc4cb1eec79087c612b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1974491325
 GameObject:
   m_ObjectHideFlags: 0

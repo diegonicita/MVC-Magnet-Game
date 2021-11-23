@@ -8,9 +8,9 @@ public class Controller : Elemento
     protected Renderer rend;
 
     // Handles the ball hit event
-    public void OnNotification(string p_event_path, Object p_target, params object[] p_data)
+    virtual public void OnNotification(string p_event_path, Object p_target, params object[] p_data)
     {
-        Debug.Log(p_event_path);
+       // Debug.Log(p_event_path);
     }
 
     public void Start()

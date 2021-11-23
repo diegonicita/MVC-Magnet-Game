@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 
-public class rutas : Elemento
+public class Rutas : Elemento
 {
     public Controller controlador;
     public string [] path;
