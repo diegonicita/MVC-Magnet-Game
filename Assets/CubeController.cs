@@ -4,6 +4,19 @@ using UnityEngine;
 
 public class CubeController : Controller
 {
+    private GameObject obj;
+    private Renderer rend;
+    private Rigidbody rb;
+    
+    private void Awake()
+    {
+        obj = app.views.GetComponent<ViewSampleScene>().cube;
+        if (obj != null)
+            rb = obj.GetComponent<Rigidbody>();
+        if (obj != null)
+            rend = obj.GetComponent<Renderer>();
+    }
+
     // Handles the ball hit event
     override public void OnNotification(string p_event_path, Object p_target, params object[] p_data)
     {
@@ -51,5 +64,29 @@ public class CubeController : Controller
         Color newColor = new Color(1, 0, 0, 1);
         rend.material.shader = Shader.Find("Universal Render Pipeline/Lit");
         rend.material.SetColor("_BaseColor", newColor);        
+    }   
+
+    void FixedUpdate()
+    {
+        if (app.model.attractorActivado)
+            if (app.controllers[2].GetComponent<ParticlesController>().objs != null)
+                foreach (GameObject o in app.controllers[2].GetComponent<ParticlesController>().objs)
+                {
+                    Attract(o);
+                }
+    }
+
+    void Attract(GameObject objToAttract)
+    {
+        Rigidbody rbToAttract = objToAttract.GetComponent<Rigidbody>();
+        Vector3 direction = rb.position - rbToAttract.position;
+        float distance = direction.magnitude;
+
+        if (distance == 0f)
+            return;
+
+        float forceMagnitude = app.model.fuerzaDeAtraccion * (rb.mass * rbToAttract.mass) / Mathf.Pow(distance, 2);
+        Vector3 force = direction.normalized * forceMagnitude;
+        rbToAttract.AddForce(force);
     }
 }

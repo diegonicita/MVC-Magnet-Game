@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class SphereController : Controller
 {
+    public GameObject obj;
+    protected Renderer rend;
+
+    public void Start()
+    {
+        if (obj != null)
+            rend = obj.GetComponent<Renderer>();
+    }
+
     // Handles the ball hit event
     override public void OnNotification(string p_event_path, Object p_target, params object[] p_data)
     {

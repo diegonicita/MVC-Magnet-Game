@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class View : Elemento
-{   
-
+public class ParticlesController : Controller
+{
+    public GameObject[] objs;
 }
