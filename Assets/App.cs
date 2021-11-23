@@ -10,8 +10,7 @@ public class Elemento : MonoBehaviour
 }
 
 public class App : MonoBehaviour
-{
-    public Rutas [] routes;
+{    
     public Controller [] controllers;
     public Model model;
     public View views;
