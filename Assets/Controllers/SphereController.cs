@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class SphereController : Controller
 {
-    public GameObject obj;
-    protected Renderer rend;
+    private GameObject obj;
+    private Renderer rend;
+    private Rigidbody rb;
 
-    public void Start()
+    private void Awake()
     {
+        obj = app.views.GetComponent<ViewSampleScene>().sphere;
+        if (obj != null)
+            rb = obj.GetComponent<Rigidbody>();
         if (obj != null)
             rend = obj.GetComponent<Renderer>();
     }

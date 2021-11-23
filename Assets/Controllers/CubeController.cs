@@ -69,24 +69,8 @@ public class CubeController : Controller
     void FixedUpdate()
     {
         if (app.model.attractorActivado)
-            if (app.controllers[2].GetComponent<ParticlesController>().objs != null)
-                foreach (GameObject o in app.controllers[2].GetComponent<ParticlesController>().objs)
-                {
-                    Attract(o);
-                }
-    }
-
-    void Attract(GameObject objToAttract)
-    {
-        Rigidbody rbToAttract = objToAttract.GetComponent<Rigidbody>();
-        Vector3 direction = rb.position - rbToAttract.position;
-        float distance = direction.magnitude;
-
-        if (distance == 0f)
-            return;
-
-        float forceMagnitude = app.model.fuerzaDeAtraccion * (rb.mass * rbToAttract.mass) / Mathf.Pow(distance, 2);
-        Vector3 force = direction.normalized * forceMagnitude;
-        rbToAttract.AddForce(force);
+            {
+            app.controllers[2].GetComponent<ParticlesController>().GetAttracted(obj);
+            }            
     }
 }

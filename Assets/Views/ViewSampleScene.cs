@@ -21,10 +21,10 @@ public class ViewSampleScene : View
                 switch (hit.transform.gameObject.name)
                 {
                     case "Cube":
-                        Debug.Log("c");
+                        //Debug.Log("c");
                         break;
                     case "Sphere":
-                        Debug.Log("e");
+                        //Debug.Log("e");
                         break;
                 }
 
