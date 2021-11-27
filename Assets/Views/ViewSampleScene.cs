@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ViewSampleScene : View
 {
-    public GameObject cube;
-    public GameObject sphere;
+    public GameObject[] cubes;
+    public GameObject[] spheres;
     public GameObject[] particles;
 
     void Update()
@@ -20,11 +20,11 @@ public class ViewSampleScene : View
 
                 switch (hit.transform.gameObject.name)
                 {
-                    case "Cube":
-                        //Debug.Log("c");
+                    case "Cube1":
+                        Debug.Log("cube1");
                         break;
-                    case "Sphere":
-                        //Debug.Log("e");
+                    case "Sphere1":
+                        Debug.Log("sphere1");
                         break;
                 }
 
@@ -35,8 +35,8 @@ public class ViewSampleScene : View
     public void EnviarMensaje(string texto)
     {
         string [] words = texto.Split(" ");
-        if (words[0] == "Cubo") app.Notify(words[1], cube);
-        if (words[0] == "Esfera") app.Notify(words[1], sphere);
+        if (words[0] == "Cubo1") app.Notify(words[1], cubes[0]);
+        if (words[0] == "Esfera1") app.Notify(words[1], spheres[0]);
     }
 
 
