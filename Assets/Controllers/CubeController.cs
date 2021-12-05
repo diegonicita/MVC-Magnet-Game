@@ -35,6 +35,9 @@ public class CubeController : Controller
                     case "Achicar":
                         AchicarCubo(o);
                         break;
+                    case "Toggle":
+                        ToggleCubo(o);
+                        break;
                 }
             }
         }
@@ -62,7 +65,12 @@ public class CubeController : Controller
         Color newColor = new Color(1, 0, 0, 1);
         o.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
         o.GetComponent<Renderer>().material.SetColor("_BaseColor", newColor);        
-    }   
+    }
+
+    public void ToggleCubo(GameObject o)
+    {
+        app.model.attractorActivado = !app.model.attractorActivado;
+    }
 
     void FixedUpdate()
     {
