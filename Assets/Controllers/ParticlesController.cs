@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ParticlesController : Controller
 {
-    private GameObject[] objs;
+    private List<GameObject> objs;
 
     private void Awake()
     {
-        objs = app.views.GetComponent<ViewSampleScene>().particles;        
+        objs = app.views.GetComponent<ViewSampleScene>().particlesList;        
     }
     
     public void GetAttracted(GameObject objAttractor)

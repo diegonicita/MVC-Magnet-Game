@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class CubeController : Controller
 {
-    private GameObject[] objs;
+    private List<GameObject> objs;
     
     private void Awake()
     {
-        objs = app.views.GetComponent<ViewSampleScene>().cubes;        
+        objs = app.views.GetComponent<ViewSampleScene>().cubesList;        
+    }
+
+    private void Start()
+    {
+        app.model.attractorActivado.Add(objs[0].name, false);
+        app.model.attractorActivado.Add(objs[1].name, false);
+        app.model.attractorHitsNeeded.Add(objs[0].name, 3);
+        app.model.attractorHitsNeeded.Add(objs[1].name, 3);
     }
 
     // Handles the ball hit event
@@ -37,6 +45,13 @@ public class CubeController : Controller
                         break;
                     case "Toggle":
                         ToggleCubo(o);
+                        break;
+                    case "Collision":
+                        Collision c = (Collision)p_data[0];
+                        Debug.Log(c.gameObject.name);
+                        GameObject go = GameObject.Find(c.gameObject.name);
+
+                        if (go != null && go.name != "Floor") go.SetActive(false);
                         break;
                 }
             }
@@ -69,17 +84,18 @@ public class CubeController : Controller
 
     public void ToggleCubo(GameObject o)
     {
-        app.model.attractorActivado = !app.model.attractorActivado;
+        app.model.attractorActivado[o.name] = !app.model.attractorActivado[o.name];        
     }
 
     void FixedUpdate()
     {
         foreach (GameObject o in objs)
         {
-            if (app.model.attractorActivado)
+            if (app.model.attractorActivado[o.name])
             {
                 app.controllers[2].GetComponent<ParticlesController>().GetAttracted(o);
             }
         }
     }
+    
 }

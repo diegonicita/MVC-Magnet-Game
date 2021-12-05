@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class SphereController : Controller
 {
-    private GameObject [] objs;
+    private List<GameObject> objs;
     
     private void Awake()
     {
-        objs = app.views.GetComponent<ViewSampleScene>().spheres;        
+        objs = app.views.GetComponent<ViewSampleScene>().spheresList;        
     }
 
     // Handles the ball hit event

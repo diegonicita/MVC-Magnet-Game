@@ -4,9 +4,43 @@ using UnityEngine;
 
 public class ViewSampleScene : View
 {
-    public GameObject[] cubes;
-    public GameObject[] spheres;
-    public GameObject[] particles;
+    public Dictionary<string, GameObject> objectosDictionary = new Dictionary<string, GameObject>();
+    public List<GameObject> cubesList;
+    public List<GameObject> spheresList;
+    public List<GameObject> particlesList;
+
+    private void Awake()
+    {
+        addObject("Cube1", "Cube");
+        addObject("Cube2", "Cube");
+        addObject("Sphere1", "Sphere");
+        addObject("Sphere2", "Sphere");
+        addObject("Particle1", "Particle");
+        addObject("Particle2", "Particle");
+        addObject("Particle3", "Particle");
+        addObject("Particle4", "Particle");
+        addObject("Particle5", "Particle");
+        addObject("Particle6", "Particle");
+    }
+
+    private void addObject(string name, string tipo)
+    {
+        GameObject obj = GameObject.Find(name);
+        objectosDictionary.Add(name, obj);
+        switch(tipo)
+        {
+            case "Cube":
+            cubesList.Add(obj);
+            break;
+            case "Sphere":
+            spheresList.Add(obj);
+            break;
+            case "Particle":
+            particlesList.Add(obj);
+            break;
+        }
+        
+    }    
 
     void Update()
     {
@@ -22,11 +56,11 @@ public class ViewSampleScene : View
                 {
                     case "Cube1":
                         Debug.Log("click on cube1");
-                        app.Notify("Toggle", cubes[0]);
+                        app.Notify("Toggle", cubesList[0]);
                         break;
                     case "Cube2":
                         Debug.Log("click on cube2");
-                        app.Notify("Toggle", cubes[1]);
+                        app.Notify("Toggle", cubesList[1]);
                         break;
                     case "Sphere1":
                         Debug.Log("click on sphere1");
@@ -43,10 +77,10 @@ public class ViewSampleScene : View
     public void EnviarMensaje(string texto)
     {
         string [] words = texto.Split(" ");
-        if (words[0] == "Cubo1") app.Notify(words[1], cubes[0]);
-        if (words[0] == "Cubo2") app.Notify(words[1], cubes[1]);
-        if (words[0] == "Esfera1") app.Notify(words[1], spheres[0]);
-        if (words[0] == "Esfera2") app.Notify(words[1], spheres[1]);
+        if (words[0] == "Cubo1") app.Notify(words[1], cubesList[0]);
+        if (words[0] == "Cubo2") app.Notify(words[1], cubesList[1]);
+        if (words[0] == "Esfera1") app.Notify(words[1], spheresList[0]);
+        if (words[0] == "Esfera2") app.Notify(words[1], spheresList[1]);
     }
 
 
