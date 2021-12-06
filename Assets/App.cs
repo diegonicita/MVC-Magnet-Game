@@ -13,7 +13,7 @@ public class App : MonoBehaviour
 {    
     public Controller [] controllers;
     public Model model;
-    public View views;
+    public View view;
 
     // Iterates all Controllers and delegates the notification data
     // This method can easily be found because every class is “Element” and has an “app” instance.

@@ -8,7 +8,7 @@ public class SphereController : Controller
     
     private void Awake()
     {
-        objs = app.views.GetComponent<ViewSampleScene>().spheresList;        
+        objs = app.view.GetComponent<View>().spheresList;        
     }
 
     // Handles the ball hit event

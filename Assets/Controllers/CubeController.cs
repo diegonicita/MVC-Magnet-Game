@@ -1,23 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CubeController : Controller
 {
     private List<GameObject> objs;
-    
+    private List<GameObject> UItexts;
+
     private void Awake()
     {
-        objs = app.views.GetComponent<ViewSampleScene>().cubesList;        
-    }
-
-    private void Start()
-    {
-        app.model.attractorActivado.Add(objs[0].name, false);
-        app.model.attractorActivado.Add(objs[1].name, false);
-        app.model.attractorHitsNeeded.Add(objs[0].name, 3);
-        app.model.attractorHitsNeeded.Add(objs[1].name, 3);
-    }
+        objs = app.view.GetComponent<View>().cubesList; 
+        UItexts = app.view.GetComponent<View>().textsList;        
+    }  
 
     // Handles the ball hit event
     override public void OnNotification(string p_event_path, Object p_target, params object[] p_data)
@@ -47,11 +42,14 @@ public class CubeController : Controller
                         ToggleCubo(o);
                         break;
                     case "Collision":
-                        Collision c = (Collision)p_data[0];
-                        Debug.Log(c.gameObject.name);
-                        GameObject go = GameObject.Find(c.gameObject.name);
-
-                        if (go != null && go.name != "Floor") go.SetActive(false);
+                        Collision c = (Collision)p_data[0];                        
+                        GameObject objChocado = GameObject.Find(c.gameObject.name);
+                        if (objChocado != null && objChocado.name != "Floor" && app.model.GetCollisionsToWin(o) != 0)
+                        {
+                            objChocado.SetActive(false);                            
+                            app.view.SumeScore(1);
+                            app.model.RestaCollisionsToWin(o, 1);
+                        }
                         break;
                 }
             }

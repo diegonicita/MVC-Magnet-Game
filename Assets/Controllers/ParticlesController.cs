@@ -8,7 +8,7 @@ public class ParticlesController : Controller
 
     private void Awake()
     {
-        objs = app.views.GetComponent<ViewSampleScene>().particlesList;        
+        objs = app.view.GetComponent<View>().particlesList;        
     }
     
     public void GetAttracted(GameObject objAttractor)
